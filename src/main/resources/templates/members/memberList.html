@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div class = "container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member : ${members}">
+<!--                $는 모델 안에 있는 거에서 가져오는거다, 모델은 컨트롤러 안에 있다-->
+<!--                model에서 addAttribute할 때 members라는 키를 넘겨주는데 members 안에는 List로 모든 members의 값을 담아놨다-->
+<!--                가져온걸 루프 돌면서 보여주는거-->
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- /container -->
+</body>
+</html>
