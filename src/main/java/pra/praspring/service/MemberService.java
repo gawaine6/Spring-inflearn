@@ -2,6 +2,7 @@ package pra.praspring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pra.praspring.domain.Member;
 import pra.praspring.repository.MemberRepository;
 import pra.praspring.repository.MemoryMemberRepository;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 //@Service
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
