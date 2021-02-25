@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 import pra.praspring.domain.Member;
 import pra.praspring.repository.MemberRepository;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
+// 스프링 컨테이너와 테스트 함께 실행
 @Transactional
 // 테스트를 반복적으로 수행해야되는데 이게 없으면 기존에 있던 게 반복되서 오류뜬다
 // 그래서 테스트가 끝나고 나면 보냈던 쿼리문을 전부 rollback 시켜서 디비에 반영 안되게 한다
@@ -29,7 +31,7 @@ class MemberServiceIntegrationTest {
     void 회원가입() {
         // given
         Member member = new Member();
-        member.setName("spring");
+        member.setName("spring123");
         // when
         Long saveId = memberService.join(member);
 
